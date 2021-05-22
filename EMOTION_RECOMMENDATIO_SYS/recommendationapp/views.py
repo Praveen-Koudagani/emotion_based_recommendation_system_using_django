@@ -74,3 +74,9 @@ def pdf(request):
     #pdf1=open(r"C:\Users\praveenraj\Documents\emotion_based_recommendation_system_using_django\EMOTION_RECOMMENDATIO_SYS\media\media\books_dir\praveenresume.pdf","rb").read()
     pdf1=open(path1,"rb").read()
     return HttpResponse(pdf1,content_type="application/pdf")
+
+def Error(request):
+    message=request.POST
+    #code to store messages in Error table
+    print(message)
+    return render(request,"index.html")

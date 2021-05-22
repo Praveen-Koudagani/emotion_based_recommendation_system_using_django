@@ -30,3 +30,9 @@ class Book(models.Model):
     mood=models.TextField(max_length=10)
     def __str__(self):
         return self.name
+class Error(models.Model):
+    Errorid=models.TextField(max_length=30,unique=True)
+    ErrorName=models.TextField(max_length=200)
+    Error_desc=models.TextField(max_length=500)
+    def __str__(self):
+        return self.Errorid

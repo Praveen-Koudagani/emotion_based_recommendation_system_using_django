@@ -24,7 +24,8 @@ urlpatterns = [
     path('music',views.music,name="music"),
     path('cssdemo', views.cssdemo,name='cssdemo'),
     path('book',views.books,name='book'),
-    path('pdf',views.pdf,name='pdf')
+    path('pdf',views.pdf,name='pdf'),
+    path('Error',views.Error,name="Error")
 
     #path('recommendationapp/', include('recommendationapp.urls')),
 ]

@@ -93,11 +93,14 @@ width:100%;height: auto;">
               </div>
           </div>
           <div class="chatbox__footer">
+            <form action="\Error" method="POST">
+              {% csrf_token %}
              <!--<img src="{% static 'recommendationapp/images/icons/emojis.svg'%}" alt="">-->
               <!--<img src="{% static 'recommendationapp/images/icons/microphone.svg'%}" alt="">-->
-              <input type="text" placeholder="Write a message...">
-              <button type="submit" class="send">Send</button>
+              <input type="text" name="E_msg" placeholder="Write a message...">
+              <input type="submit" class="send" value="Send"/>
              <!-- <img src="{% static 'recommendationapp/images/icons/attachment.svg'%}" alt="">-->
+             </form>
           </div>
       </div>
       <div class="chatbox__button">
