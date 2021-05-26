@@ -1,7 +1,7 @@
 from django.http import *
 from django.shortcuts import render
 from .dp import mood_detect
-from recommendationapp.models import Song,Movie,Book
+from recommendationapp.models import Song,Movie,Book,Error,Contact
 from django.core.paginator import Paginator
 # Create your views here.
 from django.shortcuts import render
@@ -75,8 +75,24 @@ def pdf(request):
     pdf1=open(path1,"rb").read()
     return HttpResponse(pdf1,content_type="application/pdf")
 
-def Error(request):
+def Error1(request):
     message=request.POST
+    try:
+      msg_obj=Error.objects.all()
+      msg_len=len(msg_obj)
+      print(message)
+      msg=Error(Errorid=msg_len+1,Error_desc=message["E_msg"])
+      msg.save()
+    except Exception:
+        msg=Error(Errorid=1,Error_desc=message)
+        msg.save()
+        print(message)
     #code to store messages in Error table
-    print(message)
+
     return render(request,"index.html")
+
+def contact(request):
+    m=request.POST
+    mail=Contact(name=m["name"],email=m["email"],phone_number=m["phone"],message=m["message"])
+    mail.save()
+    return render(request,"contact.html")

@@ -32,7 +32,14 @@ class Book(models.Model):
         return self.name
 class Error(models.Model):
     Errorid=models.TextField(max_length=30,unique=True)
-    ErrorName=models.TextField(max_length=200)
     Error_desc=models.TextField(max_length=500)
     def __str__(self):
         return self.Errorid
+
+class Contact(models.Model):
+    name=models.TextField(max_length=100)
+    email=models.EmailField(max_length=300,unique=True)
+    phone_number=models.IntegerField()
+    message=models.TextField(max_length=5000)
+    def __str__(self):
+        return self.email
